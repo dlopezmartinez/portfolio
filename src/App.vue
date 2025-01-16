@@ -233,7 +233,7 @@ onMounted(() => {
               <li><a @click="scrollInto('contacto')" data-target="contacto">CONTACTO</a></li>
             </ul>
             <section class="--icons">
-              <a href="./assets/cv.pdf" download><c-v-icon /></a>
+              <a href="/CV - Daniel Lopez Martinez.pdf" download><c-v-icon /></a>
               <a href="https://www.linkedin.com/in/dlmjob/" target="_blank"><linkedn-icon /></a>
             </section>
           </div>
