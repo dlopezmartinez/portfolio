@@ -294,9 +294,7 @@ onMounted(() => {
               <div class="project--wrapper">
                 <span class="project--time">2022 - 2023</span>
                 <div class="project--info">
-                  <span class="project--title"
-                    >Frontend Engineer - Bancocaminos</span
-                  >
+                  <span class="project--title">Frontend Engineer - Banca</span>
                   <p class="project--description">
                     Desarrollo de la landing page además de el área de clientes.
                     Construcción de componentes custom, tests unitarios y diseño
@@ -318,9 +316,7 @@ onMounted(() => {
               <div class="project--wrapper">
                 <span class="project--time">2021 - 2022</span>
                 <div class="project--info">
-                  <span class="project--title"
-                    >Frontend Engineer - Cajamar</span
-                  >
+                  <span class="project--title">Frontend Engineer - Banca</span>
                   <p class="project--description">
                     Participé en el departamento de arquitectura, orquestando y
                     maquetando componentes para el grupo de desarrollo, así como
