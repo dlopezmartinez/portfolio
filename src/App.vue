@@ -117,7 +117,6 @@ const setAboutMeAnimation = () => {
     disableHelloAnimation();
     disableAboutMeAnimation();
     setIntersectionObserver();
-    document.querySelector(".--scrollable").remove();
   }, 1500);
 };
 
@@ -125,7 +124,6 @@ const disableAboutMeAnimation = () => {
   const stack = document.querySelector(".about-me");
   stack.classList.remove("--zoom-in");
   stack.style.setProperty("position", "relative");
-  stack.scrollIntoView();
   stack.style.setProperty("visibility", "visible");
 };
 
@@ -145,17 +143,17 @@ const setCandle = () => {
 const hasAnimatedHello = ref(false);
 const isAnimating = ref(false);
 const handlerScroll = () => {
-  const scroll = window.scrollY;
-  if (!hasAnimatedHello.value && scroll >= 400) {
+  if (!hasAnimatedHello.value) {
     isAnimating.value = true;
     setHelloAnimation();
     setTimeout(() => {
       setAboutMeAnimation();
+      window.removeEventListener("wheel", handlerScroll, false);
     }, 2000);
   }
 };
 const setScrollFunctions = () => {
-  window.addEventListener("scroll", handlerScroll, false);
+  window.addEventListener("wheel", handlerScroll, false);
 };
 
 const loading = ref(true);
@@ -468,7 +466,6 @@ onMounted(() => {
           </div>
         </div>
       </section>
-      <section class="--scrollable"></section>
     </div>
   </main>
 </template>
