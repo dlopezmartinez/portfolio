@@ -149,7 +149,8 @@ const handlerScroll = () => {
     setTimeout(() => {
       setAboutMeAnimation();
       window.removeEventListener("wheel", handlerScroll, false);
-    }, 2000);
+      window.addEventListener("touchmove", handlerScroll, 1000);
+    }, 800);
   }
 };
 const setScrollFunctions = () => {
