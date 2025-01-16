@@ -153,7 +153,11 @@ const handlerScroll = () => {
   }
 };
 const setScrollFunctions = () => {
-  window.addEventListener("wheel", handlerScroll, false);
+  if (!isMobile.value) {
+    window.addEventListener("wheel", handlerScroll, false);
+  } else {
+    setTimeout(handlerScroll, 1000);
+  }
 };
 
 const loading = ref(true);
