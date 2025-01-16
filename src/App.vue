@@ -621,6 +621,7 @@ main {
   }
 
   a {
+    cursor: pointer;
     color: white;
     font-weight: 600px;
   }
@@ -634,7 +635,7 @@ main {
   .wrapper {
     margin: auto;
     width: 100%;
-    max-width: 1600px;
+    max-width: 1520px;
     height: 100%;
     gap: 100px;
     display: grid;
@@ -704,6 +705,7 @@ main {
       list-style-type: none;
 
       a {
+        cursor: pointer;
         display: flex;
         align-items: center;
         gap: 10px;
@@ -712,11 +714,22 @@ main {
 
         &::before {
           transition: all 0.2s ease;
-
           content: "";
           width: 20px;
           height: 1px;
           background-color: var(--color-highlight);
+        }
+
+        &:hover {
+          opacity: 1;
+
+          &::before {
+            transition: all 0.2s ease;
+            content: "";
+            width: 30px;
+            height: 1px;
+            background-color: var(--color-highlight);
+          }
         }
 
         &.--active {
