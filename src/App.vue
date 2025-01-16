@@ -156,7 +156,7 @@ const setScrollFunctions = () => {
   if (!isMobile.value) {
     window.addEventListener("wheel", handlerScroll, false);
   } else {
-    setTimeout(handlerScroll, 1000);
+    window.addEventListener("touchend", handlerScroll, 1000);
   }
 };
 
