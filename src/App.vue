@@ -747,6 +747,10 @@ main {
   }
 
   .scroller {
+    -webkit-transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
     position: absolute;
     bottom: -50px;
     left: 0;
@@ -768,6 +772,10 @@ main {
     );
 
     .scroller__inner {
+      -webkit-transform-style: preserve-3d;
+      -webkit-backface-visibility: hidden;
+      transform-style: preserve-3d;
+      backface-visibility: hidden;
       width: fit-content;
       animation: scroll 15s linear infinite;
       padding-block: 10px;
@@ -776,6 +784,10 @@ main {
     }
 
     .scroller__item {
+      -webkit-transform-style: preserve-3d;
+      -webkit-backface-visibility: hidden;
+      transform-style: preserve-3d;
+      backface-visibility: hidden;
       padding: 10px;
       background-color: var(--color-secondary);
       box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.2);
