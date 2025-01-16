@@ -1,0 +1,788 @@
+<script setup>
+import { ref } from 'vue'
+import LinkednIcon from './components/icons/LinkednIcon.vue'
+import CVIcon from './components/icons/CVIcon.vue'
+// -- isMobile --
+// detectamos el viewport para eliminar ciertos elementos o animaciones
+const isMobile = ref(window.innerWidth <= 899)
+window.addEventListener('resize', (event) => {
+  isMobile.value = event.target.innerWidth <= 899
+})
+
+// -- hola --
+
+const helloArr = ['Hola,', 'Hello,', 'Bonjour,', 'Guten tag,', 'Hallo,']
+const hello = ref('')
+const description = ref('')
+
+let index = -1
+const getNextExpression = () => {
+  index = index + 1
+  if (index > helloArr.length - 1) {
+    index = 0
+  }
+  return helloArr[index]
+}
+
+setTimeout(() => {
+  hello.value = 'Hola,'
+  description.value = 'Soy Daniel, un apasionado desarrollador de software.'
+}, 1000)
+
+const intervalTime = 4000
+let interval = setInterval(() => {
+  const nextValue = getNextExpression()
+  hello.value = nextValue
+}, intervalTime)
+
+document.addEventListener('visibilitychange', function () {
+  if (document.hidden) {
+    clearInterval(interval)
+  } else {
+    interval = setInterval(() => {
+      const nextValue = getNextExpression()
+      hello.value = nextValue
+    }, intervalTime)
+  }
+})
+
+// -- scrollInto --
+const scrollInto = (id) => {
+  document.getElementById(id).scrollIntoView({
+    behavior: 'smooth',
+    block: 'center',
+  })
+}
+
+const setIntersectionObserver = () => {
+  const sections = document.querySelectorAll('.--content__section')
+
+  const observerOptions = {
+    root: document.querySelector('.--container-scroll'),
+    threshold: 0.5,
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries?.forEach((entry) => {
+      const targetLink = document.querySelector(`a[data-target="${entry.target.id}"]`)
+
+      if (entry.isIntersecting) {
+        targetLink?.classList.add('--active')
+      } else {
+        targetLink?.classList.remove('--active')
+      }
+    })
+  }, observerOptions)
+
+  sections.forEach((section) => observer.observe(section))
+}
+
+// -- scrollers --
+
+const setScrollerAnimation = () => {
+  const scrollers = document.querySelectorAll('.scroller')
+  scrollers.forEach((scroller) => {
+    const scrollerInner = scroller.querySelector('.scroller__inner')
+    const scrollerContent = [...scrollerInner.children]
+
+    scrollerContent.forEach((item) => {
+      const duplicatedItem = item.cloneNode(true)
+      duplicatedItem.setAttribute('aria-hidden', true)
+      scrollerInner.appendChild(duplicatedItem)
+    })
+
+    console.log('content: ', scrollerContent)
+  })
+}
+
+// -- hola animation --
+
+const setHelloAnimation = () => {
+  hasAnimatedHello.value = true
+  const landing = document.querySelector('.landing')
+  landing.classList.add('--zoom-out')
+}
+
+const disableHelloAnimation = () => {
+  const landing = document.querySelector('.landing')
+  landing.classList.remove('--zoom-out')
+  landing.remove()
+}
+
+const setAboutMeAnimation = () => {
+  const aboutMe = document.querySelector('.about-me')
+  aboutMe.classList.add('--zoom-in')
+  setTimeout(() => {
+    isAnimating.value = false
+    disableHelloAnimation()
+    disableAboutMeAnimation()
+    setIntersectionObserver()
+    document.querySelector('.--scrollable').remove()
+  }, 1500)
+}
+
+const disableAboutMeAnimation = () => {
+  const stack = document.querySelector('.about-me')
+  stack.classList.remove('--zoom-in')
+  stack.style.setProperty('position', 'relative')
+  stack.scrollIntoView()
+  stack.style.setProperty('visibility', 'visible')
+}
+
+// -- cursor --
+const setCandle = () => {
+  const candle = document.getElementById('candle')
+  document.documentElement.addEventListener('mousemove', function handleMouseMove(event) {
+    candle.style.setProperty('--light-position-y', event.clientY + 'px')
+    candle.style.setProperty('--light-position-x', event.clientX + 'px')
+  })
+}
+
+// -- background --
+const indexBg = ref(0)
+const setBackground = () => {
+  const positionsArr = [
+    { x: '0%', y: '0%' },
+    { x: '50%', y: '0%' },
+    { x: '100%', y: '0%' },
+    { x: '100%', y: '50%' },
+    { x: '100%', y: '100%' },
+    { x: '50%', y: '100%' },
+    { x: '0%', y: '100%' },
+    { x: '0%', y: '50%' },
+  ]
+
+  const { x, y } = positionsArr[index]
+  indexBg.value = (indexBg.value + 1) % positionsArr.length
+
+  document.body.style.setProperty('--xAxisBG', x)
+  document.body.style.setProperty('--yAxisBG', y)
+}
+
+// -- scroll --
+const hasAnimatedHello = ref(false)
+const isAnimating = ref(false)
+const lastScrollPosition = ref(0)
+const setScrollFunctions = () => {
+  window.addEventListener(
+    'scroll',
+    () => {
+      document.body.style.setProperty('--scroll', window.scrollY)
+      const scroll = window.scrollY
+      lastScrollPosition.value = scroll
+
+      // setBackground(scroll)
+
+      if (!hasAnimatedHello.value && scroll >= 400) {
+        isAnimating.value = true
+        setHelloAnimation()
+        setTimeout(() => {
+          setAboutMeAnimation()
+        }, 2000)
+      }
+    },
+    false,
+  )
+}
+
+const loading = ref(true)
+import { onMounted } from 'vue'
+onMounted(() => {
+  setCandle()
+  setScrollFunctions()
+  setScrollerAnimation()
+  loading.value = false
+
+  setTimeout(() => {
+    document.querySelector('.mouse').classList.add('--zoom-in')
+  }, 3000)
+})
+</script>
+
+<template>
+  <div id="candle" />
+  <div class="--stripe-bg" />
+  <main class="main">
+    <div class="content">
+      <section class="landing">
+        <div class="hello--wrapper">
+          <transition name="slide-fade">
+            <p class="--hello" :key="hello">
+              {{ hello }}
+            </p>
+          </transition>
+        </div>
+
+        <transition name="slide-fade-inverted">
+          <p class="--description" :key="description">
+            {{ description }}
+          </p>
+        </transition>
+        <div class="mouse" />
+      </section>
+      <section class="about-me">
+        <div class="wrapper">
+          <div class="--name">
+            <h1><strong>DANIEL LOPEZ</strong></h1>
+            <h2>Front End Engineer</h2>
+            <p>Construyo webs accesibles, escalables y responsivas.</p>
+            <ul v-if="!isMobile" class="--router">
+              <li><a @click="scrollInto('about-me')" data-target="about-me">SOBRE MI</a></li>
+              <li><a @click="scrollInto('proyects')" data-target="proyects">PROYECTOS</a></li>
+              <li><a @click="scrollInto('stack')" data-target="stack">STACK</a></li>
+              <li><a @click="scrollInto('contacto')" data-target="contacto">CONTACTO</a></li>
+            </ul>
+            <section class="--icons">
+              <a href="./assets/cv.pdf" download><c-v-icon /></a>
+              <a href="https://www.linkedin.com/in/dlmjob/" target="_blank"><linkedn-icon /></a>
+            </section>
+          </div>
+          <div class="--container-scroll">
+            <section id="about-me" class="--content__section">
+              <p class="--sticky-header">Sobre mi</p>
+              <p>
+                Soy un desarrollador web centrado en el Frontend, construyo y manejo la arquitectura
+                de la web, creando componentes customs y facilitando el desarrollo en ésta.
+                Recientemente he estado trabajando en crear experiencias accesibles que no solo se
+                vean bien si no que están meticulosamente hechas para el rendimiento y usabilidad.
+              </p>
+              <p>
+                Actualmente trabjo en <a>NEORIS</a> como coordinador/arquitecto de Front End. Me
+                encargo del desarrollo de la arquitectura de un gestor procesal web para el
+                Ministerio de Justicia, los componentes de éste y de la creación de herramientas que
+                mejoren la experiencia de desarrollo. Además, coordino el desarrollo de un equipo de
+                4 personas front y me aseguro de que la comunicación con la parte back sea eficiente
+                y dinámica.
+              </p>
+              <p>
+                En el pasado he tenido la oportunidad de crear software para distintos sectores --
+                desde el sector bancario hasta el sector público. He trabajado con webs PWA, SPA e
+                incluso con MicroFronts usando <a>Webpack 5 MF</a>.
+              </p>
+              <p>
+                En mi tiempo libre, me podrás encontrar en la pista de pádel, pasando tiempo de
+                calidad con mi pareja, jugando a algún videojuego o bebiendo cerveza con amigos.
+              </p>
+            </section>
+            <section id="proyects" class="--content__section">
+              <p class="--sticky-header">Proyects</p>
+              <div class="project--wrapper">
+                <span class="project--time">2023 - Present</span>
+                <div class="project--info">
+                  <span class="project--title">Exp Frontend Engineer - Ministerio Justicia</span>
+                  <p class="project--description">
+                    Desarrollo y coordinación de un gestor procesal para el Ministerio de Justicia
+                    Español, construcción de la arquitectura frontal de éste, los componentes
+                    utilizados, tests unitarios y algoritmos en Cypress para la utilización por
+                    parte del equipo de QA. Integración dinámica con Backend y gestión de las tareas
+                    del grupo de desarrollo.
+                  </p>
+                  <div class="scroller">
+                    <div class="scroller__inner">
+                      <span class="scroller__item">Javascript ES6+</span>
+                      <span class="scroller__item">HTML5</span>
+                      <span class="scroller__item">CSS3</span>
+                      <span class="scroller__item">VUE3</span>
+                      <span class="scroller__item">Vite</span>
+                      <span class="scroller__item">Cypress</span>
+                      <span class="scroller__item">Git</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="project--wrapper">
+                <span class="project--time">2022 - 2023</span>
+                <div class="project--info">
+                  <span class="project--title">Frontend Engineer - Bancocaminos</span>
+                  <p class="project--description">
+                    Desarrollo de la landing page además de el área de clientes. Construcción de
+                    componentes custom, tests unitarios y diseño totalmente responsive para la app
+                    móvil.
+                  </p>
+                  <div class="scroller">
+                    <div class="scroller__inner">
+                      <span class="scroller__item">Javascript ES6+</span>
+                      <span class="scroller__item">HTML5</span>
+                      <span class="scroller__item">CSS3</span>
+                      <span class="scroller__item">VUE2/3</span>
+                      <span class="scroller__item">Webpack</span>
+                      <span class="scroller__item">Jest</span>
+                      <span class="scroller__item">Git</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="project--wrapper">
+                <span class="project--time">2021 - 2022</span>
+                <div class="project--info">
+                  <span class="project--title">Frontend Engineer - Cajamar</span>
+                  <p class="project--description">
+                    Participé en el departamento de arquitectura, orquestando y maquetando
+                    componentes para el grupo de desarrollo, así como trabajando activamente en
+                    otros proyectos internos como el desarrollo de webs de seguros, landings o otros
+                    aplicativos que incluían Microfronts y paquetes de librerias propios de la casa.
+                  </p>
+                  <div class="scroller">
+                    <div class="scroller__inner">
+                      <span class="scroller__item">Javascript ES6+</span>
+                      <span class="scroller__item">HTML5</span>
+                      <span class="scroller__item">CSS3</span>
+                      <span class="scroller__item">Angular</span>
+                      <span class="scroller__item">MicroFronts</span>
+                      <span class="scroller__item">Webpack 5</span>
+                      <span class="scroller__item">WebComponents</span>
+                      <span class="scroller__item">Babel</span>
+                      <span class="scroller__item">Git</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="project--wrapper">
+                <span class="project--time">2020 - 2021</span>
+                <div class="project--info">
+                  <span class="project--title">Jr Fullstack Engineer - SMS</span>
+                  <p class="project--description">
+                    Desarrollo de aplicativos para el servicio de salud Murciano, desde backend con
+                    springboot a frontend con JSF.
+                  </p>
+                  <div class="scroller">
+                    <div class="scroller__inner">
+                      <span class="scroller__item">Java</span>
+                      <span class="scroller__item">SpringBoot</span>
+                      <span class="scroller__item">JSF</span>
+                      <span class="scroller__item">SVN</span>
+                      <span class="scroller__item">Apache</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section id="stack" class="--content__section">
+              <p class="--sticky-header">Stack</p>
+              <p>
+                Soy un desarrollador web centrado en el Frontend, construyo y manejo la arquitectura
+                de la web, creando componentes customs y facilitando el desarrollo en ésta.
+                Recientemente he estado trabajando en crear experiencias accesibles que no solo se
+                vean bien si no que están meticulosamente hechas para el rendimiento y usabilidad.
+              </p>
+              <p>
+                Actualmente trabjo en <a>NEORIS</a> como coordinador/arquitecto de Front End. Me
+                encargo del desarrollo de la arquitectura de un gestor procesal web para el
+                Ministerio de Justicia, los componentes de éste y de la creación de herramientas que
+                mejoren la experiencia de desarrollo. Además, coordino el desarrollo de un equipo de
+                4 personas front y me aseguro de que la comunicación con la parte back sea eficiente
+                y dinámica.
+              </p>
+              <p>
+                En el pasado he tenido la oportunidad de crear software para distintos sectores --
+                desde el sector bancario hasta el sector público. He trabajado con webs PWA, SPA e
+                incluso con MicroFronts usando <a>Webpack 5 MF</a>.
+              </p>
+              <p>
+                En mi tiempo libre, me podrás encontrar en la pista de pádel, pasando tiempo de
+                calidad con mi pareja, jugando a algún videojuego o bebiendo cerveza con amigos.
+              </p>
+            </section>
+            <section id="contacto" class="--content__section">
+              <p class="--sticky-header">Contacto</p>
+              <p>
+                Soy un desarrollador web centrado en el Frontend, construyo y manejo la arquitectura
+                de la web, creando componentes customs y facilitando el desarrollo en ésta.
+                Recientemente he estado trabajando en crear experiencias accesibles que no solo se
+                vean bien si no que están meticulosamente hechas para el rendimiento y usabilidad.
+              </p>
+              <p>
+                Actualmente trabjo en <a>NEORIS</a> como coordinador/arquitecto de Front End. Me
+                encargo del desarrollo de la arquitectura de un gestor procesal web para el
+                Ministerio de Justicia, los componentes de éste y de la creación de herramientas que
+                mejoren la experiencia de desarrollo. Además, coordino el desarrollo de un equipo de
+                4 personas front y me aseguro de que la comunicación con la parte back sea eficiente
+                y dinámica.
+              </p>
+              <p>
+                En el pasado he tenido la oportunidad de crear software para distintos sectores --
+                desde el sector bancario hasta el sector público. He trabajado con webs PWA, SPA e
+                incluso con MicroFronts usando <a>Webpack 5 MF</a>.
+              </p>
+              <p>
+                En mi tiempo libre, me podrás encontrar en la pista de pádel, pasando tiempo de
+                calidad con mi pareja, jugando a algún videojuego o bebiendo cerveza con amigos.
+              </p>
+            </section>
+          </div>
+        </div>
+      </section>
+      <section class="--scrollable"></section>
+    </div>
+  </main>
+</template>
+
+<style lang="scss">
+#candle {
+  position: fixed;
+  width: 100%;
+  height: 400%;
+  background: radial-gradient(
+    300px at var(--light-position-x, 0px) var(--light-position-y, 0px),
+    rgba(255, 125, 0, 0.15),
+    transparent 80%
+  );
+  mix-blend-mode: difference;
+}
+
+main {
+  width: 100%;
+  height: 100%;
+}
+
+.content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.landing {
+  left: 0;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
+  p {
+    color: var(--color-bright);
+    font-size: 1rem;
+    letter-spacing: 2px;
+    mix-blend-mode: difference;
+  }
+
+  .hello--wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+
+  .--hello {
+    font-size: 3rem;
+    letter-spacing: 2px;
+    text-wrap: nowrap;
+  }
+
+  .--description {
+    padding: 0px 2rem;
+    text-align: center;
+  }
+
+  .mouse {
+    visibility: hidden;
+    position: absolute;
+    bottom: 10%;
+    right: 10%;
+    height: 45px;
+    width: 35px;
+    border: 3px solid var(--color-bright);
+    border-radius: 100%;
+  }
+
+  .mouse::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 2px;
+    height: 2px;
+    background-color: var(--color-bright);
+    transform: translateX(-5px);
+    animation: up-down 1s infinite linear;
+    animation-direction: alternate;
+    @keyframes up-down {
+      0% {
+        transform: translateX(-1px) translateY(-8px);
+      }
+
+      50% {
+        transform: translateX(-1px) translateY(0);
+      }
+
+      100% {
+        transform: translateX(-1px) translateY(8px);
+      }
+    }
+  }
+}
+
+.about-me {
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  color: var(--color-white);
+  gap: 20px;
+
+  h1 {
+    position: relative;
+    font-size: 3rem;
+    letter-spacing: 4px;
+    padding: 20px 0px;
+  }
+
+  a {
+    color: white;
+    font-weight: 600px;
+  }
+
+  p {
+    text-wrap: pretty;
+    color: var(--color-bright);
+    margin: 30px 0px;
+  }
+
+  .wrapper {
+    margin: auto;
+    width: 100%;
+    max-width: 1600px;
+    height: 100%;
+    gap: 100px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  }
+
+  .--name {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+
+    .--icons {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      svg {
+        fill: var(--color-bright);
+      }
+    }
+  }
+
+  .--container-scroll {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    max-width: 100%;
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+
+    section {
+      scroll-snap-align: start;
+    }
+  }
+
+  .--sticky-header {
+    font-size: 1.5rem;
+  }
+
+  .--container-scroll::-webkit-scrollbar {
+    display: none;
+  }
+
+  .--router {
+    margin-top: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    ul {
+    }
+
+    li {
+      margin: 1rem 0;
+      list-style-type: none;
+
+      a {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--color-bright);
+        opacity: 0.8;
+
+        &::before {
+          transition: all 0.2s ease;
+
+          content: '';
+          width: 20px;
+          height: 1px;
+          background-color: var(--color-bright);
+        }
+
+        &.--active {
+          opacity: 1;
+          color: white;
+
+          &::before {
+            content: '';
+            width: 60px;
+            height: 1px;
+            background-color: var(--color-bright);
+          }
+        }
+      }
+    }
+  }
+}
+
+.--content__section {
+  max-width: 100%;
+}
+
+.project--wrapper {
+  width: 100%;
+  margin-bottom: 60px;
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  border-radius: 20px;
+  padding: 15px;
+  padding-bottom: 50px;
+
+  transition: background-color 0.2s linear;
+
+  &:hover {
+    background-color: rgba(50, 50, 50, 0.4);
+  }
+
+  .project--time {
+  }
+
+  .project--description {
+  }
+
+  .project--info {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+  }
+
+  .scroller {
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    overflow: hidden;
+    max-width: inherit;
+    -webkit-mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+    mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+
+    .scroller__inner {
+      width: fit-content;
+      animation: scroll 15s linear infinite;
+      padding-block: 10px;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .scroller__item {
+      padding: 10px;
+      background-color: var(--color-secondary);
+      box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.2);
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+
+    .scroller__inner:hover {
+      animation-play-state: paused;
+    }
+  }
+}
+
+@keyframes scroll {
+  to {
+    translate: calc(-50% - 0.5rem);
+  }
+}
+
+@media only screen and (max-width: 1270px) {
+  .project--wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media only screen and (max-width: 899px) {
+  .about-me {
+    height: auto;
+  }
+
+  .about-me .--name {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .about-me .--container-scroll {
+    max-height: 100%;
+    padding-top: 1rem;
+    padding-left: 0;
+    padding-right: 0;
+
+    p {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  .about-me .wrapper {
+    display: block;
+    gap: 0px;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .about-me .--sticky-header {
+    padding: 10px 0px;
+    backdrop-filter: blur(8px);
+    color: white;
+    position: sticky;
+    top: 0;
+  }
+
+  .--content__section {
+    p {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+    span {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+
+    .project--wrapper {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .scroller {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+}
+
+.--scrollable {
+  width: 100%;
+  height: 2000px;
+}
+</style>

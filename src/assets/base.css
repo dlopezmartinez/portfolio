@@ -1,0 +1,38 @@
+/* semantic color variables for this project */
+:root {
+  --color-primary: #0f172a;
+  --color-secondary: #15616d;
+  --color-bright: #eedcc3;
+  --color-highlight: #ff7d00;
+  --color-white: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg);
+  cursor: crosshair;
+  height: 100vh;
+  font-size: 16px;
+  font-family: 'Noto Sans', serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: 'wdth' 100;
+  text-rendering: optimizeLegibility;
+  letter-spacing: 1px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}

@@ -1,0 +1,62 @@
+/*stripes*/
+
+@keyframes smoothBg {
+  from {
+    background-position:
+      50% 50%,
+      50% 50%;
+  }
+  to {
+    background-position:
+      350% 50%,
+      350% 50%;
+  }
+}
+
+:root {
+  --stripe-color: #000;
+  --bg: var(--stripe-color);
+  --maincolor: var(--bg);
+}
+
+.--stripe-bg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  --stripes: repeating-linear-gradient(
+    100deg,
+    var(--stripe-color) 0%,
+    transparent 10%,
+    var(--stripe-color) 7%,
+    transparent 12%,
+    var(--stripe-color) 16%
+  );
+
+  --rainbow: repeating-linear-gradient(
+    100deg,
+    #0f172a 10%,
+    #15616d 15%,
+    #ff7d00 20%,
+    #ffedd4 25%,
+    #60a5fa 30%
+  );
+  background-image: var(--stripes), var(--rainbow);
+  background-size: 200%, 200%;
+  background-position:
+    50% 50%,
+    50% 50%;
+
+  filter: blur(10px) opacity(50%) saturate(150%);
+  mask-image: radial-gradient(ellipse at 100% 0%, black 30%, transparent 70%);
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: var(--stripes), var(--rainbow);
+    background-size: 200%, 200%;
+    animation: smoothBg 60s linear infinite;
+    background-attachment: fixed;
+    mix-blend-mode: difference;
+    filter: blur(10px) opacity(50%) saturate(150%);
+  }
+}
