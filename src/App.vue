@@ -92,8 +92,6 @@ const setScrollerAnimation = () => {
       duplicatedItem.setAttribute("aria-hidden", true);
       scrollerInner.appendChild(duplicatedItem);
     });
-
-    console.log("content: ", scrollerContent);
   });
 };
 
@@ -143,51 +141,21 @@ const setCandle = () => {
   );
 };
 
-// -- background --
-const indexBg = ref(0);
-const setBackground = () => {
-  const positionsArr = [
-    { x: "0%", y: "0%" },
-    { x: "50%", y: "0%" },
-    { x: "100%", y: "0%" },
-    { x: "100%", y: "50%" },
-    { x: "100%", y: "100%" },
-    { x: "50%", y: "100%" },
-    { x: "0%", y: "100%" },
-    { x: "0%", y: "50%" },
-  ];
-
-  const { x, y } = positionsArr[index];
-  indexBg.value = (indexBg.value + 1) % positionsArr.length;
-
-  document.body.style.setProperty("--xAxisBG", x);
-  document.body.style.setProperty("--yAxisBG", y);
-};
-
 // -- scroll --
 const hasAnimatedHello = ref(false);
 const isAnimating = ref(false);
-const lastScrollPosition = ref(0);
+const handlerScroll = () => {
+  const scroll = window.scrollY;
+  if (!hasAnimatedHello.value && scroll >= 400) {
+    isAnimating.value = true;
+    setHelloAnimation();
+    setTimeout(() => {
+      setAboutMeAnimation();
+    }, 2000);
+  }
+};
 const setScrollFunctions = () => {
-  window.addEventListener(
-    "scroll",
-    () => {
-      document.body.style.setProperty("--scroll", window.scrollY);
-      const scroll = window.scrollY;
-      lastScrollPosition.value = scroll;
-
-      // setBackground(scroll)
-
-      if (!hasAnimatedHello.value && scroll >= 400) {
-        isAnimating.value = true;
-        setHelloAnimation();
-        setTimeout(() => {
-          setAboutMeAnimation();
-        }, 2000);
-      }
-    },
-    false
-  );
+  window.addEventListener("scroll", handlerScroll, false);
 };
 
 const loading = ref(true);
