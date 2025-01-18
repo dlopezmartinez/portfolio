@@ -266,7 +266,7 @@ onMounted(() => {
               </p>
             </section>
             <section id="proyects" class="--content__section">
-              <p class="--sticky-header">Proyects</p>
+              <p class="--sticky-header">Proyectos</p>
               <div class="project--wrapper">
                 <span class="project--time">2023 - Present</span>
                 <div class="project--info">
