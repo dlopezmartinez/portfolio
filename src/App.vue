@@ -235,12 +235,13 @@ onMounted(() => {
             <section id="about-me" class="--content__section">
               <p class="--sticky-header">Sobre mi</p>
               <p>
-                Soy un desarrollador web centrado en el Frontend, construyo y
-                manejo la arquitectura de la web, creando componentes customs y
-                facilitando el desarrollo en ésta. Recientemente he estado
-                trabajando en crear experiencias accesibles que no solo se vean
-                bien si no que están meticulosamente hechas para el rendimiento
-                y usabilidad.
+                Soy desarrollador web especializado en Frontend. Diseño y
+                gestiono la arquitectura de aplicaciones web, creando
+                componentes personalizados y optimizando el flujo de desarrollo.
+                Mi enfoque actual está en construir experiencias accesibles que
+                no solo sean visualmente atractivas, sino también
+                meticulosamente diseñadas para maximizar el rendimiento y la
+                usabilidad.
               </p>
               <p>
                 Actualmente trabajo en <a>NEORIS</a> como coordinador/arquitecto
@@ -252,10 +253,11 @@ onMounted(() => {
                 comunicación con la parte back sea eficiente y dinámica.
               </p>
               <p>
-                En el pasado he tenido la oportunidad de crear software para
-                distintos sectores -- desde el sector bancario hasta el sector
-                público. He trabajado con webs PWA, SPA e incluso con
-                MicroFronts usando <a>Webpack 5 MF</a>.
+                A lo largo de mi trayectoria, he tenido la oportunidad de
+                desarrollar software para diversos sectores, desde el bancario
+                hasta el público. He trabajado en proyectos que incluyen PWA
+                (Progressive Web Apps), SPA (Single Page Applications) e incluso
+                MicroFrontends utilizando Webpack 5 Module Federation.
               </p>
               <p>
                 En mi tiempo libre, me podrás encontrar en la pista de pádel,
