@@ -47,7 +47,9 @@
 
 .slide-fade-enter-active {
   -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
   -webkit-perspective: 1000;
+  perspective: 1000;
   transition:
     transform 3s ease,
     opacity 3s ease;
@@ -55,7 +57,9 @@
 
 .slide-fade-leave-active {
   -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
   -webkit-perspective: 1000;
+  perspective: 1000;
   position: absolute;
   transition:
     transform 2s ease,
@@ -75,15 +79,15 @@
 }
 
 .slide-fade-leave-from {
-  -webkit-transform: translateX(0, 0, 0);
-  transform: translateX(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
   opacity: 1;
 }
 
 .slide-fade-leave-to {
   position: absolute;
-  -webkit-transform: translateX(25vw, 0, 0);
-  transform: translateX(25vw, 0, 0);
+  -webkit-transform: translate3d(25vw, 0, 0);
+  transform: translate3d(25vw, 0, 0);
   opacity: 0;
 }
 
