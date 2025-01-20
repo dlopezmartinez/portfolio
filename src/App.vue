@@ -149,16 +149,13 @@ const handlerScroll = () => {
     setTimeout(() => {
       setAboutMeAnimation();
       window.removeEventListener("wheel", handlerScroll, false);
-      window.addEventListener("touchmove", handlerScroll, 1000);
+      window.removeEventListener("touchmove", handlerScroll, false);
     }, 800);
   }
 };
 const setScrollFunctions = () => {
-  if (!isMobile.value) {
-    window.addEventListener("wheel", handlerScroll, false);
-  } else {
-    window.addEventListener("touchmove", handlerScroll, 1000);
-  }
+  window.addEventListener("wheel", handlerScroll, false);
+  window.addEventListener("touchmove", handlerScroll, false);
 };
 
 const loading = ref(true);
