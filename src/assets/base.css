@@ -26,7 +26,7 @@ html {
 
 body {
   background: var(--bg);
-  cursor: crosshair;
+  /* cursor: crosshair; */
   height: 100dvh;
   font-size: clamp(0.875rem, 3vw - 1rem, 1.125rem);
   font-family: "Inter", serif;

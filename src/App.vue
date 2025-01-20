@@ -161,7 +161,7 @@ const setScrollFunctions = () => {
 const loading = ref(true);
 import { onMounted } from "vue";
 onMounted(() => {
-  setCandle();
+  // setCandle();
   setScrollFunctions();
   setScrollerAnimation();
   loading.value = false;
@@ -173,7 +173,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div id="candle" />
+  <!-- <div v-if="!isMobile" id="candle" /> -->
   <div class="--stripe-bg" />
   <main class="main">
     <div class="content">
