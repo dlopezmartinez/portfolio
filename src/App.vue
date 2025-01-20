@@ -600,7 +600,7 @@ main {
   .wrapper {
     margin: auto;
     width: 100%;
-    max-width: 1520px;
+    max-width: 1480px;
     height: 100%;
     gap: 100px;
     display: grid;
