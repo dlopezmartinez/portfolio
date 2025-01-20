@@ -104,22 +104,3 @@
   transform: translate3d(0, 0, 0);
   opacity: 1;
 }
-
-@keyframes infiniteScroll {
-  from {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-  }
-  to {
-    -webkit-transform: translate3d(calc(0px - 50%), 0, 0);
-    transform: translate3d(calc(0px - 50%), 0, 0);
-  }
-}
-.horizontal-scrolling-items {
-  -webkit-backface-visibility: hidden;
-  -webkit-perspective: 1000;
-  animation-name: infiniteScroll;
-  animation-duration: 5s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-}

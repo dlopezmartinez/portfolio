@@ -797,7 +797,8 @@ main {
 
 @keyframes scroll {
   to {
-    translate: calc(-50% - 0.5rem);
+    -webkit-transform: translate3d(calc(-50% - 0.5rem), 0, 0);
+    transform: translate3d(calc(-50% - 0.5rem), 0, 0);
   }
 }
 
