@@ -46,12 +46,16 @@
 }
 
 .slide-fade-enter-active {
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
   transition:
     transform 3s ease,
     opacity 3s ease;
 }
 
 .slide-fade-leave-active {
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
   position: absolute;
   transition:
     transform 2s ease,
@@ -59,23 +63,27 @@
 }
 
 .slide-fade-enter-from {
-  transform: translateX(-25vw);
+  -webkit-transform: translate3d(-25vw, 0, 0);
+  transform: translate3d(-25vw, 0, 0);
   opacity: 0;
 }
 
 .slide-fade-enter-to {
-  transform: translateX(0%);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
   opacity: 1;
 }
 
 .slide-fade-leave-from {
-  transform: translateX(0%);
+  -webkit-transform: translateX(0, 0, 0);
+  transform: translateX(0, 0, 0);
   opacity: 1;
 }
 
 .slide-fade-leave-to {
   position: absolute;
-  transform: translateX(25vw);
+  -webkit-transform: translateX(25vw, 0, 0);
+  transform: translateX(25vw, 0, 0);
   opacity: 0;
 }
 
@@ -86,24 +94,30 @@
 }
 
 .slide-fade-inverted-enter-from {
-  transform: translateX(25vw);
+  -webkit-transform: translate3d(25vw, 0, 0);
+  transform: translate3d(25vw, 0, 0);
   opacity: 0;
 }
 
 .slide-fade-inverted-enter-to {
-  transform: translateX(0%);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
   opacity: 1;
 }
 
 @keyframes infiniteScroll {
   from {
-    transform: translateX(0);
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
   }
   to {
-    transform: translateX(calc(0px - 50%));
+    -webkit-transform: translate3d(calc(0px - 50%), 0, 0);
+    transform: translate3d(calc(0px - 50%), 0, 0);
   }
 }
 .horizontal-scrolling-items {
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
   animation-name: infiniteScroll;
   animation-duration: 5s;
   animation-iteration-count: infinite;
