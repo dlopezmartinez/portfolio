@@ -433,7 +433,7 @@ onMounted(() => {
               <p class="--sticky-header">Contacto</p>
               <form
                 class="contact__form"
-                action="https://formsubmit.co/05508ba02217d8faa8aaffa6b374a473"
+                action="https://formsubmit.co/daniel.lmjob@gmail.com"
                 method="POST"
               >
                 <div style="display: flex; gap: 10px; flex-wrap: wrap">
