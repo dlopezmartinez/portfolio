@@ -8,6 +8,7 @@ import JavascriptIcon from "./components/icons/JavascriptIcon.vue";
 import CssIcon from "./components/icons/CSSIcon.vue";
 import HtmlIcon from "./components/icons/HTMLIcon.vue";
 import ViteIcon from "./components/icons/ViteIcon.vue";
+import AngularIcon from "./components/icons/AngularIcon.vue";
 // -- isMobile --
 // detectamos el viewport para eliminar ciertos elementos o animaciones
 const isMobile = ref(window.innerWidth <= 899);
@@ -425,6 +426,22 @@ onMounted(() => {
                   </p>
                 </div>
               </div>
+              <div class="stack--wrapper">
+                <div style="display: flex; gap: 1rem; justify-content: center">
+                  <angular-icon class="--icon" />
+                </div>
+                <div>
+                  <p>
+                    He trabajado también con el framework de
+                    <span style="color: #cc2e34">Angular</span> el cual me ha
+                    llamado mucho en sus últimas versiones dada la experiencia
+                    de desarrollo más cercana a otros frameworks como Vue.
+                    Laboralmente he trabajado con versiones más antiguas de
+                    Angular además de Microfronts con Webpack 5. También conozco
+                    el ecosistema Angular como las librerias RXJS o Ngrx.
+                  </p>
+                </div>
+              </div>
 
               <!-- <p>
                 Empecé en el desarrollo como backend con Java, por tanto
@@ -447,15 +464,7 @@ onMounted(() => {
                 plantillas en Typescript con EJS y prompts con Yeoman.
               </p>
 
-              <p>
-                He trabajado también con el framework de
-                <span style="color: #cc2e34">Angular</span> el cual me ha
-                llamado mucho en sus últimas versiones dada la experiencia de
-                desarrollo más cercana a otros frameworks como Vue. Laboralmente
-                he trabajado con versiones más antiguas de Angular y en concreto
-                usando Microfronts con Webpack 5. También conozco el ecosistema
-                Angular como las librerias RXJS o Ngrx.
-              </p>
+
               <p>
                 En general soy una persona bastante curiosa que me gusta, al
                 menos, conocer los distintos frameworks o herramientas que me
@@ -928,7 +937,7 @@ main {
 .--icon {
   width: 100%;
   height: 100%;
-  max-height: 150px;
+  max-width: 100px;
 }
 
 .--stack {
