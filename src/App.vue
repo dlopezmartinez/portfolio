@@ -1,7 +1,13 @@
+<!-- eslint-disable no-unused-vars -->
 <script setup>
 import { ref } from "vue";
 import LinkednIcon from "./components/icons/LinkednIcon.vue";
 import CVIcon from "./components/icons/CVIcon.vue";
+import VueIcon from "./components/icons/VueIcon.vue";
+import JavascriptIcon from "./components/icons/JavascriptIcon.vue";
+import CssIcon from "./components/icons/CSSIcon.vue";
+import HtmlIcon from "./components/icons/HTMLIcon.vue";
+import ViteIcon from "./components/icons/ViteIcon.vue";
 // -- isMobile --
 // detectamos el viewport para eliminar ciertos elementos o animaciones
 const isMobile = ref(window.innerWidth <= 899);
@@ -364,7 +370,63 @@ onMounted(() => {
             </section>
             <section id="stack" class="--content__section">
               <p class="--sticky-header">Stack</p>
-              <p>
+              <div class="stack--wrapper">
+                <div style="display: flex; gap: 1rem; justify-content: center">
+                  <javascript-icon class="--icon" />
+                  <html-icon class="--icon" />
+                  <css-icon class="--icon" />
+                </div>
+                <div>
+                  <p>
+                    Aunque empecé a desarrollar Backend con Java, pronto
+                    Javascript se convertiría en mi lenguaje principal, dado que
+                    no solo lo uso en Frontend, si no también para hacer
+                    servicios con ExpressJS o otro framework de Node. HTML5 y
+                    CSS es un obligatorio en el mundo web, así que comencé a
+                    aprenderlos mediante libros, cursos y la propia experiencia
+                    en mi trabajo. Actualmente trabajo con éstos 3 de manera
+                    diaria, manteniendome actualizado en las nuevas features que
+                    salen a la luz.
+                  </p>
+                  <p>
+                    También he trabajado con Typrescript, desarrollando un
+                    <a
+                      href="https://www.npmjs.com/package/generator-express-crud"
+                      target="_blank"
+                      >generador de APIs</a
+                    >
+                    a través de un esquema de entidades, desarrollado con
+                    NodeJS, Express, Docker, MongoDB y Yeoman.
+                  </p>
+                </div>
+              </div>
+              <div class="stack--wrapper">
+                <div style="display: flex; gap: 1rem; justify-content: center">
+                  <vue-icon class="--icon" />
+                  <vite-icon class="--icon" />
+                </div>
+                <div>
+                  <p>
+                    El framework con el que más experiencia tengo es sin duda
+                    <span style="color: #9dd3b6">Vue</span>, tanto antiguas
+                    versiones como las más actuales. Ésto incluye todo el
+                    ecosistema que le rodea como Vuex, Pinia, Vite, Vitest...
+                    También me he salido un poco del ecosistema usando Vue en
+                    versiones más antiguas junto con Webpack o Jest. He
+                    realizado multitud de proyectos con éste framework,
+                    explorando cada una de las opciones que te da, así como he
+                    realizado cursos, leído libros y hecho mis propios
+                    experimentos para ampliar mi conocimiento con Vue.
+                  </p>
+                  <p>
+                    También tengo conocimientos con frameworks como Nuxt para
+                    crear webs SSR, posicionamiento SEO u herramientas como
+                    StoryBook.
+                  </p>
+                </div>
+              </div>
+
+              <!-- <p>
                 Empecé en el desarrollo como backend con Java, por tanto
                 entiendo tanto de como se conforman las APIs como del propio
                 lenguaje, más tarde me atreví con el Frontend y comencé mi viaje
@@ -384,22 +446,7 @@ onMounted(() => {
                 automáticos a través de una entrada de entidades con un .yaml,
                 plantillas en Typescript con EJS y prompts con Yeoman.
               </p>
-              <p>
-                El framework con el que más experiencia tengo es sin duda
-                <span style="color: #9dd3b6">Vue</span>, tanto antiguas
-                versiones como las más actuales. Ésto incluye todo el ecosistema
-                que le rodea como Vuex, Pinia, Vite, Vitest... También me he
-                salido un poco del ecosistema usando Vue en versiones más
-                antiguas junto con Webpack o Jest. He realizado multitud de
-                proyectos con éste framework, explorando cada una de las
-                opciones que te da, así como he realizado cursos, leído libros y
-                hecho mis propios experimentos para ampliar mi conocimiento con
-                Vue.
-              </p>
-              <p>
-                También tengo conocimientos con frameworks como Nuxt para crear
-                webs SSR, posicionamiento SEO u herramientas como StoryBook.
-              </p>
+
               <p>
                 He trabajado también con el framework de
                 <span style="color: #cc2e34">Angular</span> el cual me ha
@@ -427,7 +474,7 @@ onMounted(() => {
               <p>
                 Ésto es solo un resumen de lo que conozco, cualquier pregunta no
                 dudes en ponerte en contacto conmigo.
-              </p>
+              </p> -->
             </section>
             <section id="contacto" class="--content__section">
               <p class="--sticky-header">Contacto</p>
@@ -670,6 +717,7 @@ main {
       list-style-type: none;
 
       a {
+        max-width: fit-content;
         cursor: pointer;
         display: flex;
         align-items: center;
@@ -728,12 +776,6 @@ main {
     background-color: rgba(50, 50, 50, 0.4);
   }
 
-  .project--time {
-  }
-
-  .project--description {
-  }
-
   .project--info {
     display: flex;
     flex-direction: column;
@@ -790,13 +832,8 @@ main {
       perspective: 1000;
       padding: 10px;
       background-color: var(--color-secondary);
-      box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.2);
       border-radius: 20px;
       white-space: nowrap;
-    }
-
-    .scroller__inner:hover {
-      animation-play-state: paused;
     }
   }
 }
@@ -880,6 +917,24 @@ main {
   }
 }
 
+.stack--wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem 0px;
+  padding-bottom: 2rem;
+}
+
+.--icon {
+  width: 100%;
+  height: 100%;
+  max-height: 150px;
+}
+
+.--stack {
+  max-height: 200px;
+}
+
 .contact__form {
   display: flex;
   flex-direction: column;
@@ -909,15 +964,11 @@ main {
 }
 
 .contact__button {
+  cursor: pointer;
   background-color: var(--color-highlight);
   font-family: "Inter";
   font-size: 1rem;
   padding: 1rem;
   flex: 1;
-}
-
-.--scrollable {
-  width: 100%;
-  height: 2000px;
 }
 </style>
