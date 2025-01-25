@@ -454,7 +454,7 @@ onMounted(() => {
                 <div>
                   <p>
                     El framework con el que más experiencia tengo es
-                    <span style="color: #9dd3b6">Vue</span>, tanto antiguas
+                    <strong style="color: #9dd3b6">Vue</strong>, tanto antiguas
                     versiones como las más actuales. Ésto incluye todo el
                     ecosistema que le rodea como, Vuex, Pinia, Vite, Vitest etc.
                     He realizado multitud de proyectos con éste framework, tanto
@@ -472,10 +472,10 @@ onMounted(() => {
                 <div>
                   <p>
                     He trabajado también con el framework de
-                    <span style="color: #cc2e34">Angular</span> realizando webs
-                    en una arquitectura Microfront, librerias de componentes
-                    para ésta arquitectura etc. También he utilizado librerías
-                    del ecosistema como son RxJS o NGRX.
+                    <strong style="color: #cc2e34; padding: 0">Angular</strong>
+                    realizando webs en una arquitectura Microfront, librerías de
+                    componentes para ésta arquitectura etc. También he utilizado
+                    librerías del ecosistema como son RxJS o NGRX.
                   </p>
                 </div>
               </div>
@@ -496,48 +496,6 @@ onMounted(() => {
                   <span class="stack--others__item">MongoDB</span>
                 </div>
               </div>
-
-              <!-- <p>
-                Empecé en el desarrollo como backend con Java, por tanto
-                entiendo tanto de como se conforman las APIs como del propio
-                lenguaje, más tarde me atreví con el Frontend y comencé mi viaje
-                con Javascript, HTML y CSS. Aunque son 3 elementos muy amplios,
-                intento mantenerme al día con las mejoras y nuevas
-                implementaciones de cada uno de éstos, tal y como se puede ver
-                por ejemplo en éste portfolio con algunas nuevas
-                implementaciones de CSS3. Considero a Javascript mi lenguaje
-                principal de programación, ya que con él he programado no solo
-                Frontend si no también backend con ExpressJS y NodeJS, incluso
-                herramientas personales como
-                <a
-                  href="https://www.npmjs.com/package/generator-express-crud"
-                  target="_blank"
-                  >generadores de APIs</a
-                >
-                automáticos a través de una entrada de entidades con un .yaml,
-                plantillas en Typescript con EJS y prompts con Yeoman.
-              </p>
-
-
-              <p>
-                En general soy una persona bastante curiosa que me gusta, al
-                menos, conocer los distintos frameworks o herramientas que me
-                ofrece la web. Aunque mi especialización sea con Vue, puedo ser
-                muy resolutivo con cualquier framework dado mi rápido
-                aprendizaje y el gusto que tengo por conocer nuevas
-                herramientas.
-              </p>
-              <p>
-                Dentro de mis proyectos siempre me gusta trabajar con
-                componentes customs, patrones de diseño, clean code e intentar
-                mejorar la experiencia de desarrollo dentro del proyecto.
-                También he implementado sistemas de login cifrados, SSO,
-                interceptores de request ( Axios ), rutas securizadas etc...
-              </p>
-              <p>
-                Ésto es solo un resumen de lo que conozco, cualquier pregunta no
-                dudes en ponerte en contacto conmigo.
-              </p> -->
             </section>
             <section id="contacto" class="--content__section">
               <p class="--sticky-header">Contacto</p>
@@ -988,7 +946,16 @@ main {
   }
 
   .stack--others {
+    gap: 0;
+  }
+
+  .stack--others {
     padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .scroller__item span {
+    padding-left: 0;
     padding-right: 1rem;
   }
 }
