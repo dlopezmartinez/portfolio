@@ -252,23 +252,19 @@ onMounted(() => {
               <p>
                 Actualmente trabajo en <a>NEORIS</a> como coordinador/arquitecto
                 de Front End. Me encargo del desarrollo de la arquitectura de un
-                gestor procesal web para el Ministerio de Justicia, los
-                componentes de éste y de la creación de herramientas que mejoren
-                la experiencia de desarrollo. Además, coordino el desarrollo de
-                un equipo de 4 personas front y me aseguro de que la
-                comunicación con la parte back sea eficiente y dinámica.
+                gestor procesal web para el Ministerio de Justicia, además de
+                coordinar al equipo de desarrollo y el reparto de tareas.
               </p>
               <p>
                 A lo largo de mi trayectoria, he tenido la oportunidad de
-                desarrollar software para diversos sectores, desde el bancario
-                hasta el público. He trabajado en proyectos que incluyen PWA
-                (Progressive Web Apps), SPA (Single Page Applications) e incluso
-                MicroFrontends utilizando Webpack 5 Module Federation.
+                desarrollar software para diversos sectores, desde el sector
+                bancario, sector comercial o el sector público.
               </p>
               <p>
-                En mi tiempo libre, me podrás encontrar en la pista de pádel,
-                pasando tiempo de calidad con mi pareja, jugando a algún
-                videojuego o bebiendo cerveza con amigos.
+                Me considero una persona a la que le apasiona su trabajo y es
+                responsable con él, sigo teniendo el mismo hambre de aprender y
+                mejorar que cuando empecé, además de preocuparme por el trabajo
+                eficaz y sobretodo, bien hecho.
               </p>
             </section>
             <section id="proyects" class="--content__section">
@@ -330,7 +326,7 @@ onMounted(() => {
                   <p class="project--description">
                     Desarrollo de la landing page además de el área de clientes.
                     Construcción de componentes custom, tests unitarios y diseño
-                    totalmente responsive para la app móvil.
+                    totalmente responsive para la app móvil que embebía la web.
                   </p>
                   <div class="scroller">
                     <div class="scroller__inner">
@@ -552,7 +548,7 @@ onMounted(() => {
               >
                 <div style="display: flex; gap: 10px; flex-wrap: wrap">
                   <input
-                    placeholder="Name"
+                    placeholder="Nombre"
                     class="contact__input"
                     type="text"
                     name="name"
