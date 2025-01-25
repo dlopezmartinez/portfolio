@@ -25,11 +25,12 @@ html {
 body {
   background: var(--bg);
   height: 100dvh;
-  font-size: clamp(0.875rem, 3vw - 1rem, 1.125rem);
+  font-size: clamp(0.875rem, 3vw - 1rem, 1.075rem);
   font-family: "Inter", serif;
   font-optical-sizing: auto;
   text-rendering: optimizeLegibility;
   letter-spacing: 1px;
+  line-height: 1.2;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

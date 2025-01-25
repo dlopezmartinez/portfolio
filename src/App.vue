@@ -9,6 +9,8 @@ import CssIcon from "./components/icons/CSSIcon.vue";
 import HtmlIcon from "./components/icons/HTMLIcon.vue";
 import ViteIcon from "./components/icons/ViteIcon.vue";
 import AngularIcon from "./components/icons/AngularIcon.vue";
+import WebpackIcon from "./components/icons/WebpackIcon.vue";
+import PiniaIcon from "./components/icons/PiniaIcon.vue";
 // -- isMobile --
 // detectamos el viewport para eliminar ciertos elementos o animaciones
 const isMobile = ref(window.innerWidth <= 899);
@@ -272,7 +274,7 @@ onMounted(() => {
             <section id="proyects" class="--content__section">
               <p class="--sticky-header">Proyectos</p>
               <div class="project--wrapper">
-                <span class="project--time">2023 - Present</span>
+                <span class="project--time">2023 - Presente</span>
                 <div class="project--info">
                   <span class="project--title"
                     >Exp Frontend Engineer - Ministerio Justicia</span
@@ -287,13 +289,36 @@ onMounted(() => {
                   </p>
                   <div class="scroller">
                     <div class="scroller__inner">
-                      <span class="scroller__item">Javascript ES6+</span>
-                      <span class="scroller__item">HTML5</span>
-                      <span class="scroller__item">CSS3</span>
-                      <span class="scroller__item">VUE3</span>
-                      <span class="scroller__item">Vite</span>
-                      <span class="scroller__item">Cypress</span>
-                      <span class="scroller__item">Git</span>
+                      <div class="scroller__item">
+                        <div class="icon--wrapper-s">
+                          <javascript-icon class="--icon" />
+                        </div>
+                        <span>Javascript ES6+</span>
+                      </div>
+                      <div class="scroller__item">
+                        <div class="icon--wrapper-s">
+                          <html-icon class="--icon" />
+                        </div>
+                        <span>HTML</span>
+                      </div>
+                      <div class="scroller__item">
+                        <div class="icon--wrapper-s">
+                          <css-icon class="--icon" />
+                        </div>
+                        <span>CSS</span>
+                      </div>
+                      <div class="scroller__item">
+                        <div class="icon--wrapper-s">
+                          <vue-icon class="--icon" />
+                        </div>
+                        <span>Vue</span>
+                      </div>
+                      <div class="scroller__item">
+                        <div class="icon--wrapper-s">
+                          <vite-icon class="--icon" />
+                        </div>
+                        <span>Vite</span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -309,13 +334,36 @@ onMounted(() => {
                   </p>
                   <div class="scroller">
                     <div class="scroller__inner">
-                      <span class="scroller__item">Javascript ES6+</span>
-                      <span class="scroller__item">HTML5</span>
-                      <span class="scroller__item">CSS3</span>
-                      <span class="scroller__item">VUE2/3</span>
-                      <span class="scroller__item">Webpack</span>
-                      <span class="scroller__item">Jest</span>
-                      <span class="scroller__item">Git</span>
+                      <div class="scroller__item">
+                        <div class="icon--wrapper-s">
+                          <javascript-icon class="--icon" />
+                        </div>
+                        <span>Javascript ES6+</span>
+                      </div>
+                      <div class="scroller__item">
+                        <div class="icon--wrapper-s">
+                          <html-icon class="--icon" />
+                        </div>
+                        <span>HTML</span>
+                      </div>
+                      <div class="scroller__item">
+                        <div class="icon--wrapper-s">
+                          <css-icon class="--icon" />
+                        </div>
+                        <span>CSS</span>
+                      </div>
+                      <div class="scroller__item">
+                        <div class="icon--wrapper-s">
+                          <vue-icon class="--icon" />
+                        </div>
+                        <span>Vue</span>
+                      </div>
+                      <div class="scroller__item">
+                        <div class="icon--wrapper-s">
+                          <webpack-icon class="--icon" />
+                        </div>
+                        <span>Webpack</span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -334,36 +382,36 @@ onMounted(() => {
                   </p>
                   <div class="scroller">
                     <div class="scroller__inner">
-                      <span class="scroller__item">Javascript ES6+</span>
-                      <span class="scroller__item">HTML5</span>
-                      <span class="scroller__item">CSS3</span>
-                      <span class="scroller__item">Angular</span>
-                      <span class="scroller__item">MicroFronts</span>
-                      <span class="scroller__item">Webpack 5</span>
-                      <span class="scroller__item">WebComponents</span>
-                      <span class="scroller__item">Babel</span>
-                      <span class="scroller__item">Git</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="project--wrapper">
-                <span class="project--time">2020 - 2021</span>
-                <div class="project--info">
-                  <span class="project--title"
-                    >Jr Fullstack Engineer - SMS</span
-                  >
-                  <p class="project--description">
-                    Desarrollo de aplicativos para el servicio de salud
-                    Murciano, desde backend con springboot a frontend con JSF.
-                  </p>
-                  <div class="scroller">
-                    <div class="scroller__inner">
-                      <span class="scroller__item">Java</span>
-                      <span class="scroller__item">SpringBoot</span>
-                      <span class="scroller__item">JSF</span>
-                      <span class="scroller__item">SVN</span>
-                      <span class="scroller__item">Apache</span>
+                      <div class="scroller__item">
+                        <div class="icon--wrapper-s">
+                          <javascript-icon class="--icon" />
+                        </div>
+                        <span>Javascript ES6+</span>
+                      </div>
+                      <div class="scroller__item">
+                        <div class="icon--wrapper-s">
+                          <html-icon class="--icon" />
+                        </div>
+                        <span>HTML</span>
+                      </div>
+                      <div class="scroller__item">
+                        <div class="icon--wrapper-s">
+                          <css-icon class="--icon" />
+                        </div>
+                        <span>CSS</span>
+                      </div>
+                      <div class="scroller__item">
+                        <div class="icon--wrapper-s">
+                          <angular-icon class="--icon" />
+                        </div>
+                        <span>Angular</span>
+                      </div>
+                      <div class="scroller__item">
+                        <div class="icon--wrapper-s">
+                          <webpack-icon class="--icon" />
+                        </div>
+                        <span>Webpack</span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -379,18 +427,18 @@ onMounted(() => {
                 </div>
                 <div>
                   <p>
-                    Aunque empecé a desarrollar Backend con Java, pronto
-                    Javascript se convertiría en mi lenguaje principal, dado que
-                    no solo lo uso en Frontend, si no también para hacer
-                    servicios con ExpressJS o otro framework de Node. HTML5 y
-                    CSS es un obligatorio en el mundo web, así que comencé a
-                    aprenderlos mediante libros, cursos y la propia experiencia
-                    en mi trabajo. Actualmente trabajo con éstos 3 de manera
-                    diaria, manteniendome actualizado en las nuevas features que
-                    salen a la luz.
+                    Javascript como mi lenguaje principal, no solo lo uso en
+                    Frontend, si no también para la creación de servicios con
+                    ExpressJS o otro framework de Node o otro tipo de desarrollo
+                    de software. HTML5 y CSS es un obligatorio en el mundo web,
+                    así que comencé a aprenderlos mediante libros, cursos y la
+                    propia experiencia en mi trabajo. Actualmente trabajo con
+                    éstos 3 de manera diaria, manteniéndome actualizado en las
+                    nuevas features que salen a la luz.
                   </p>
                   <p>
-                    También he trabajado con Typrescript, desarrollando un
+                    También he trabajado con <strong>Typrescript</strong>,
+                    desarrollando un
                     <a
                       href="https://www.npmjs.com/package/generator-express-crud"
                       target="_blank"
@@ -405,24 +453,19 @@ onMounted(() => {
                 <div style="display: flex; gap: 1rem; justify-content: center">
                   <vue-icon class="--icon" />
                   <vite-icon class="--icon" />
+                  <pinia-icon class="--icon" />
                 </div>
                 <div>
                   <p>
-                    El framework con el que más experiencia tengo es sin duda
+                    El framework con el que más experiencia tengo es
                     <span style="color: #9dd3b6">Vue</span>, tanto antiguas
                     versiones como las más actuales. Ésto incluye todo el
-                    ecosistema que le rodea como Vuex, Pinia, Vite, Vitest...
-                    También me he salido un poco del ecosistema usando Vue en
-                    versiones más antiguas junto con Webpack o Jest. He
-                    realizado multitud de proyectos con éste framework,
-                    explorando cada una de las opciones que te da, así como he
-                    realizado cursos, leído libros y hecho mis propios
-                    experimentos para ampliar mi conocimiento con Vue.
-                  </p>
-                  <p>
-                    También tengo conocimientos con frameworks como Nuxt para
-                    crear webs SSR, posicionamiento SEO u herramientas como
-                    StoryBook.
+                    ecosistema que le rodea como, Vuex, Pinia, Vite, Vitest etc.
+                    He realizado multitud de proyectos con éste framework, tanto
+                    PWAs como SPAs, desde webs complejas hasta lading pages. Es
+                    mi ecosistema de preferencia a la hora de arrancar un
+                    proyecto, por la versatilidad, robustez y dinamismo que
+                    ofrece en el desarrollo de una web.
                   </p>
                 </div>
               </div>
@@ -433,13 +476,28 @@ onMounted(() => {
                 <div>
                   <p>
                     He trabajado también con el framework de
-                    <span style="color: #cc2e34">Angular</span> el cual me ha
-                    llamado mucho en sus últimas versiones dada la experiencia
-                    de desarrollo más cercana a otros frameworks como Vue.
-                    Laboralmente he trabajado con versiones más antiguas de
-                    Angular además de Microfronts con Webpack 5. También conozco
-                    el ecosistema Angular como las librerias RXJS o Ngrx.
+                    <span style="color: #cc2e34">Angular</span> realizando webs
+                    en una arquitectura Microfront, librerias de componentes
+                    para ésta arquitectura etc. También he utilizado librerías
+                    del ecosistema como son RxJS o NGRX.
                   </p>
+                </div>
+              </div>
+              <div class="stack--wrapper">
+                <div style="display: flex; gap: 1rem">
+                  <span>Otras tecnologías</span>
+                </div>
+                <div class="stack--others">
+                  <span class="stack--others__item">Java</span>
+                  <span class="stack--others__item">SpringBoot</span>
+                  <span class="stack--others__item">Git</span>
+                  <span class="stack--others__item">Cypress</span>
+                  <span class="stack--others__item">Playwright</span>
+                  <span class="stack--others__item">Jest</span>
+                  <span class="stack--others__item">Astro</span>
+                  <span class="stack--others__item">Docker</span>
+                  <span class="stack--others__item">SQL</span>
+                  <span class="stack--others__item">MongoDB</span>
                 </div>
               </div>
 
@@ -774,7 +832,7 @@ main {
   width: 100%;
   margin-bottom: 60px;
   display: grid;
-  grid-template-columns: 150px 1fr;
+  grid-template-columns: 170px 1fr;
   border-radius: 20px;
   padding: 15px;
   padding-bottom: 50px;
@@ -840,9 +898,17 @@ main {
       -webkit-perspective: 1000;
       perspective: 1000;
       padding: 10px;
-      background-color: var(--color-secondary);
-      border-radius: 20px;
+      background-color: rgba(48, 48, 48, 1);
+      border-radius: 5px;
+      border-width: 1px;
+      border-style: solid;
+      border-color: var(--color-highlight);
+      box-shadow: 0px 0px 10px var(--color-highlight);
       white-space: nowrap;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
     }
   }
 }
@@ -867,7 +933,7 @@ main {
 
   .about-me .--name {
     padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding-bottom: 0;
   }
 
   .about-me .--container-scroll {
@@ -924,6 +990,11 @@ main {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
   }
+
+  .stack--others {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 }
 
 .stack--wrapper {
@@ -934,10 +1005,33 @@ main {
   padding-bottom: 2rem;
 }
 
+.stack--others {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.stack--others__item {
+  padding: 10px;
+  background-color: rgba(48, 48, 48, 1);
+  border-radius: 5px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--color-secondary);
+  box-shadow: 0px 0px 10px var(--color-secondary);
+  white-space: nowrap;
+  gap: 1rem;
+}
+
 .--icon {
   width: 100%;
   height: 100%;
   max-width: 100px;
+}
+
+.icon--wrapper-s {
+  width: 24px;
+  height: 24px;
 }
 
 .--stack {
