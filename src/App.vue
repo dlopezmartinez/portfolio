@@ -287,31 +287,31 @@ onMounted(() => {
                     <div class="scroller__inner">
                       <div class="scroller__item">
                         <div class="icon--wrapper-s">
-                          <javascript-icon class="--icon" />
+                          <javascript-icon class="--icon no-glow" />
                         </div>
                         <span>Javascript ES6+</span>
                       </div>
                       <div class="scroller__item">
                         <div class="icon--wrapper-s">
-                          <html-icon class="--icon" />
+                          <html-icon class="--icon no-glow" />
                         </div>
                         <span>HTML</span>
                       </div>
                       <div class="scroller__item">
                         <div class="icon--wrapper-s">
-                          <css-icon class="--icon" />
+                          <css-icon class="--icon no-glow" />
                         </div>
                         <span>CSS</span>
                       </div>
                       <div class="scroller__item">
                         <div class="icon--wrapper-s">
-                          <vue-icon class="--icon" />
+                          <vue-icon class="--icon no-glow" />
                         </div>
                         <span>Vue</span>
                       </div>
                       <div class="scroller__item">
                         <div class="icon--wrapper-s">
-                          <vite-icon class="--icon" />
+                          <vite-icon class="--icon no-glow" />
                         </div>
                         <span>Vite</span>
                       </div>
@@ -332,31 +332,31 @@ onMounted(() => {
                     <div class="scroller__inner">
                       <div class="scroller__item">
                         <div class="icon--wrapper-s">
-                          <javascript-icon class="--icon" />
+                          <javascript-icon class="--icon no-glow" />
                         </div>
                         <span>Javascript ES6+</span>
                       </div>
                       <div class="scroller__item">
                         <div class="icon--wrapper-s">
-                          <html-icon class="--icon" />
+                          <html-icon class="--icon no-glow" />
                         </div>
                         <span>HTML</span>
                       </div>
                       <div class="scroller__item">
                         <div class="icon--wrapper-s">
-                          <css-icon class="--icon" />
+                          <css-icon class="--icon no-glow" />
                         </div>
                         <span>CSS</span>
                       </div>
                       <div class="scroller__item">
                         <div class="icon--wrapper-s">
-                          <vue-icon class="--icon" />
+                          <vue-icon class="--icon no-glow" />
                         </div>
                         <span>Vue</span>
                       </div>
                       <div class="scroller__item">
                         <div class="icon--wrapper-s">
-                          <webpack-icon class="--icon" />
+                          <webpack-icon class="--icon no-glow" />
                         </div>
                         <span>Webpack</span>
                       </div>
@@ -380,31 +380,31 @@ onMounted(() => {
                     <div class="scroller__inner">
                       <div class="scroller__item">
                         <div class="icon--wrapper-s">
-                          <javascript-icon class="--icon" />
+                          <javascript-icon class="--icon no-glow" />
                         </div>
                         <span>Javascript ES6+</span>
                       </div>
                       <div class="scroller__item">
                         <div class="icon--wrapper-s">
-                          <html-icon class="--icon" />
+                          <html-icon class="--icon no-glow" />
                         </div>
                         <span>HTML</span>
                       </div>
                       <div class="scroller__item">
                         <div class="icon--wrapper-s">
-                          <css-icon class="--icon" />
+                          <css-icon class="--icon no-glow" />
                         </div>
                         <span>CSS</span>
                       </div>
                       <div class="scroller__item">
                         <div class="icon--wrapper-s">
-                          <angular-icon class="--icon" />
+                          <angular-icon class="--icon no-glow" />
                         </div>
                         <span>Angular</span>
                       </div>
                       <div class="scroller__item">
                         <div class="icon--wrapper-s">
-                          <webpack-icon class="--icon" />
+                          <webpack-icon class="--icon no-glow" />
                         </div>
                         <span>Webpack</span>
                       </div>
@@ -1023,6 +1023,10 @@ main {
   width: 100%;
   height: 100%;
   max-width: 100px;
+}
+
+.no-glow {
+  filter: none !important;
 }
 
 .icon--wrapper-s {
