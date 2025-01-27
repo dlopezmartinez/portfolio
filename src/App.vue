@@ -169,6 +169,7 @@ const setScrollFunctions = () => {
 
 const loading = ref(true);
 import { onMounted } from "vue";
+import TypescriptIcon from "./components/icons/TypescriptIcon.vue";
 onMounted(() => {
   // setCandle();
   setScrollFunctions();
@@ -380,9 +381,9 @@ onMounted(() => {
                     <div class="scroller__inner">
                       <div class="scroller__item">
                         <div class="icon--wrapper-s">
-                          <javascript-icon class="--icon no-glow" />
+                          <typescript-icon class="--icon no-glow" />
                         </div>
-                        <span>Javascript ES6+</span>
+                        <span>TypeScript</span>
                       </div>
                       <div class="scroller__item">
                         <div class="icon--wrapper-s">
@@ -468,6 +469,7 @@ onMounted(() => {
               <div class="stack--wrapper">
                 <div style="display: flex; gap: 1rem; justify-content: center">
                   <angular-icon class="--icon" />
+                  <typescript-icon class="--icon" />
                 </div>
                 <div>
                   <p>
