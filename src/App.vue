@@ -646,13 +646,12 @@ main {
   height: 100%;
   margin: auto;
   color: var(--color-white);
-  gap: 20px;
 
   h1 {
     position: relative;
     font-size: 3rem;
-    letter-spacing: 4px;
-    padding: 20px 0px;
+    letter-spacing: 2px;
+    padding: 10px 0px;
   }
 
   a {
@@ -664,13 +663,13 @@ main {
   p {
     text-wrap: pretty;
     color: var(--color-bright);
-    margin: 30px 0px;
+    margin: 20px 0px;
   }
 
   .wrapper {
     margin: auto;
     width: 100%;
-    max-width: 1480px;
+    max-width: 1420px;
     height: 100%;
     gap: 100px;
     display: grid;
@@ -728,7 +727,6 @@ main {
   }
 
   .--router {
-    margin-top: 2rem;
     padding-left: 1rem;
     padding-right: 1rem;
 
@@ -894,7 +892,7 @@ main {
 
   .about-me .--container-scroll {
     max-height: 100%;
-    padding-top: 1rem;
+    padding-top: 0;
     padding-left: 0;
     padding-right: 0;
     overflow: inherit;

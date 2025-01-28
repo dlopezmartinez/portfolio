@@ -49,12 +49,12 @@
   filter: blur(10px) opacity(50%) saturate(150%);
   mask-image: radial-gradient(ellipse at 100% 0%, black 30%, transparent 70%);
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
     background-image: var(--stripes), var(--rainbow);
     background-size: 200%, 200%;
-    animation: smoothBg 60s linear infinite;
+    /* animation: smoothBg 60s linear infinite; */
     background-attachment: fixed;
     mix-blend-mode: difference;
     filter: blur(10px) opacity(50%) saturate(150%);
