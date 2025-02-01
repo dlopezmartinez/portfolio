@@ -68,7 +68,7 @@ const setIntersectionObserver = () => {
 
   const observerOptions = {
     root: document.querySelector(".--container-scroll"),
-    threshold: 0.5,
+    threshold: 0.65,
   };
 
   const observer = new IntersectionObserver((entries) => {
