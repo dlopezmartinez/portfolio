@@ -485,7 +485,8 @@ onMounted(() => {
                     PWAs como SPAs, desde webs complejas hasta lading pages. Es
                     mi ecosistema de preferencia a la hora de arrancar un
                     proyecto, por la versatilidad, robustez y dinamismo que
-                    ofrece en el desarrollo de una web.
+                    ofrece en el desarrollo de una web. Actualmente es el
+                    framework con el que más cómodo me siento.
                   </p>
                 </div>
               </div>
@@ -497,16 +498,16 @@ onMounted(() => {
                   <p>
                     Otro framework con el que he trabajado, es
                     <strong style="color: #53c1de">React</strong>, sobre todo en
-                    su versión 16 hacia delante. Aunque solo haya sido para
-                    cosas más sencillas como landings o proyectos personales,
-                    puedo extrapolar toda mi experiencia con Vue a React, ya que
-                    desde un principio me centré en aprender la web
-                    manteniendome agnóstico al framework. Desde el uso de todos
-                    los hooks, custom hooks, librerias comunes de React como
-                    Redux, el cuidado de los rerenders, ciclos de vida, el uso
-                    de React.Memo y una buena orquestación de componentes para
-                    no comprometer el rendimiento, conozco el framework como
-                    para aventurarme a desarrollar cualquier tipo de web con él.
+                    su versión 16 hacia delante. He desarrollado landings o
+                    proyectos personales, aunque puedo extrapolar toda mi
+                    experiencia con Vue a React, ya que desde un principio me
+                    centré en aprender la web manteniendome agnóstico al
+                    framework. Desde el uso de todos los hooks, custom hooks,
+                    librerias comunes de React como Redux, el cuidado de los
+                    rerenders, ciclos de vida, el uso de React.Memo y una buena
+                    orquestación de componentes para no comprometer el
+                    rendimiento, conozco el framework como para aventurarme a
+                    desarrollar cualquier tipo de web con él.
                   </p>
                 </div>
               </div>
