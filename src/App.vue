@@ -832,7 +832,7 @@ main {
   grid-template-columns: 170px 1fr;
   border-radius: 20px;
   padding: 15px;
-  padding-bottom: 50px;
+  padding-bottom: 70px;
 
   transition: background-color 0.2s linear;
 
