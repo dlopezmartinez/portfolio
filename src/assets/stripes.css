@@ -2,14 +2,16 @@
 
 @keyframes smoothBg {
   from {
-    background-position:
+    /* transform: translateX(0%); */
+    /* background-position:
       50% 50%,
-      50% 50%;
+      50% 50%; */
   }
   to {
-    background-position:
+    /* transform: translateX(200%); */
+    /* background-position:
       350% 50%,
-      350% 50%;
+      350% 50%; */
   }
 }
 

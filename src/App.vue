@@ -59,7 +59,7 @@ document.addEventListener("visibilitychange", function () {
 const scrollInto = (id) => {
   document.getElementById(id).scrollIntoView({
     behavior: "smooth",
-    block: "center",
+    block: "start",
   });
 };
 
@@ -68,7 +68,6 @@ const setIntersectionObserver = () => {
 
   const observerOptions = {
     root: document.querySelector(".--container-scroll"),
-    threshold: 0.65,
   };
 
   const observer = new IntersectionObserver((entries) => {
@@ -78,6 +77,10 @@ const setIntersectionObserver = () => {
       );
 
       if (entry.isIntersecting) {
+        // const allLinks = document.querySelectorAll("a[data-target]");
+        // allLinks.forEach((anchor) => {
+        //   anchor.classList.remove("--active");
+        // });
         targetLink?.classList.add("--active");
       } else {
         targetLink?.classList.remove("--active");
@@ -109,13 +112,13 @@ const setScrollerAnimation = () => {
 const setHelloAnimation = () => {
   hasAnimatedHello.value = true;
   const landing = document.querySelector(".landing");
-  landing.classList.add("--zoom-out");
+  landing?.classList.add("--zoom-out");
 };
 
 const disableHelloAnimation = () => {
   const landing = document.querySelector(".landing");
-  landing.classList.remove("--zoom-out");
-  landing.remove();
+  landing?.classList.remove("--zoom-out");
+  landing?.remove();
 };
 
 const setAboutMeAnimation = () => {
@@ -170,6 +173,7 @@ const setScrollFunctions = () => {
 const loading = ref(true);
 import { onMounted } from "vue";
 import TypescriptIcon from "./components/icons/TypescriptIcon.vue";
+import ReactIcon from "./components/icons/ReactIcon.vue";
 onMounted(() => {
   // setCandle();
   setScrollFunctions();
@@ -211,7 +215,10 @@ onMounted(() => {
             <p>Construyo webs accesibles, escalables y responsivas.</p>
             <ul v-if="!isMobile" class="--router">
               <li>
-                <a @click="scrollInto('about-me')" data-target="about-me"
+                <a
+                  @click="scrollInto('about-me')"
+                  data-target="about-me"
+                  class="--active"
                   >SOBRE MI</a
                 >
               </li>
@@ -230,7 +237,7 @@ onMounted(() => {
               </li>
             </ul>
             <section class="--icons">
-              <a href="/CV - Daniel Lopez Martinez.pdf" download
+              <a href="/DANIEL LOPEZ MARTINEZ CV 2025.pdf" download
                 ><c-v-icon
               /></a>
               <a href="https://www.linkedin.com/in/dlmjob/" target="_blank"
@@ -240,7 +247,7 @@ onMounted(() => {
           </div>
           <div class="--container-scroll">
             <section id="about-me" class="--content__section">
-              <p class="--sticky-header">Sobre mi</p>
+              <p class="--sticky-header" id="about-me">Sobre mi</p>
               <p>
                 Soy desarrollador web especializado en Frontend. Diseño y
                 gestiono la arquitectura de aplicaciones web, creando
@@ -269,7 +276,7 @@ onMounted(() => {
               </p>
             </section>
             <section id="proyects" class="--content__section">
-              <p class="--sticky-header">Proyectos</p>
+              <p class="--sticky-header" id="proyects">Proyectos</p>
               <div class="project--wrapper">
                 <span class="project--time">2023 - Presente</span>
                 <div class="project--info">
@@ -284,6 +291,14 @@ onMounted(() => {
                     por parte del equipo de QA. Integración dinámica con Backend
                     y gestión de las tareas del grupo de desarrollo.
                   </p>
+                  <p class="project--description">
+                    Componentes a medida del negocio, formularios parametrizados
+                    con validaciones reactivas, pre fetching de datos para
+                    asegurar una carga rápida de datos además de una store que
+                    nos permitía manejar los datos desde cualquier vista para
+                    evitar requests innecesarias.
+                  </p>
+
                   <div class="scroller">
                     <div class="scroller__inner">
                       <div class="scroller__item">
@@ -325,9 +340,12 @@ onMounted(() => {
                 <div class="project--info">
                   <span class="project--title">Frontend Engineer - Banca</span>
                   <p class="project--description">
-                    Desarrollo de la landing page además de el área de clientes.
+                    Desarrollo landing pages además de el área de clientes.
                     Construcción de componentes custom, tests unitarios y diseño
-                    totalmente responsive para la app móvil que embebía la web.
+                    totalmente responsive para la app móvil que embebía la web
+                    además de un doble router en función del ancho de pantalla,
+                    state centralizado, securización de rutas y request,
+                    interceptores para refresco de token etc...
                   </p>
                   <div class="scroller">
                     <div class="scroller__inner">
@@ -415,12 +433,13 @@ onMounted(() => {
               </div>
             </section>
             <section id="stack" class="--content__section">
-              <p class="--sticky-header">Stack</p>
+              <p class="--sticky-header" id="stack">Stack</p>
               <div class="stack--wrapper">
                 <div style="display: flex; gap: 1rem; justify-content: center">
                   <javascript-icon class="--icon" />
                   <html-icon class="--icon" />
                   <css-icon class="--icon" />
+                  <typescript-icon class="--icon" />
                 </div>
                 <div>
                   <p>
@@ -443,6 +462,10 @@ onMounted(() => {
                     >
                     a través de un esquema de entidades, desarrollado con
                     NodeJS, Express, Docker, MongoDB y Yeoman.
+                  </p>
+                  <p>
+                    No solo en la parte de cliente, también he desarrollado webs
+                    en TypeScript con Vue o React.
                   </p>
                 </div>
               </div>
@@ -468,8 +491,28 @@ onMounted(() => {
               </div>
               <div class="stack--wrapper">
                 <div style="display: flex; gap: 1rem; justify-content: center">
+                  <ReactIcon class="--icon" />
+                </div>
+                <div>
+                  <p>
+                    Otro framework con el que he trabajado, es
+                    <strong style="color: #53c1de">React</strong>, sobre todo en
+                    su versión 16 hacia delante. Aunque solo haya sido para
+                    cosas más sencillas como landings o proyectos personales,
+                    puedo extrapolar toda mi experiencia con Vue a React, ya que
+                    desde un principio me centré en aprender la web
+                    manteniendome agnóstico al framework. Desde el uso de todos
+                    los hooks, custom hooks, librerias comunes de React como
+                    Redux, el cuidado de los rerenders, ciclos de vida, el uso
+                    de React.Memo y una buena orquestación de componentes para
+                    no comprometer el rendimiento, conozco el framework como
+                    para aventurarme a desarrollar cualquier tipo de web con él.
+                  </p>
+                </div>
+              </div>
+              <div class="stack--wrapper">
+                <div style="display: flex; gap: 1rem; justify-content: center">
                   <angular-icon class="--icon" />
-                  <typescript-icon class="--icon" />
                 </div>
                 <div>
                   <p>
@@ -500,7 +543,7 @@ onMounted(() => {
               </div>
             </section>
             <section id="contacto" class="--content__section">
-              <p class="--sticky-header">Contacto</p>
+              <p class="--sticky-header" id="contacto">Contacto</p>
               <form
                 class="contact__form"
                 action="https://formsubmit.co/daniel.lmjob@gmail.com"
@@ -811,7 +854,7 @@ main {
     -webkit-perspective: 1000;
     perspective: 1000;
     position: absolute;
-    bottom: -50px;
+    bottom: -65px;
     left: 0;
     overflow: hidden;
     max-width: inherit;
