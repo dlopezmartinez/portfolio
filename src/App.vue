@@ -278,7 +278,55 @@ onMounted(() => {
             <section id="proyects" class="--content__section">
               <p class="--sticky-header" id="proyects">Proyectos</p>
               <div class="project--wrapper">
-                <span class="project--time">2023 - Presente</span>
+                <span class="project--time">2025 - Actual</span>
+                <div class="project--info">
+                  <span class="project--title"
+                  >Senior Frontend Developer - Bershka</span
+                  >
+                  <p class="project--description">
+                    Como Senior Frontend Developer en el equipo Catalog & Core,
+                    construyo y mantengo una plataforma eCommerce internacional
+                    bajo un paradigma SSR con Nuxt 3, liderando la evolución del
+                    catálogo digital.
+                  </p>
+                  <p class="project--description">
+                    He dirigido migraciones de Nuxt 2 a Nuxt 3 y de JavaScript a
+                    TypeScript para mejorar rendimiento y mantenibilidad,
+                    implemento accesibilidad, integro analítica con Google
+                    Analytics y diseño flujos seguros, eficientes y escalables.
+                  </p>
+                  <div class="scroller">
+                    <div class="scroller__inner">
+                      <div class="scroller__item">
+                        <div class="icon--wrapper-s">
+                          <vue-icon class="--icon no-glow" />
+                        </div>
+                        <span>Nuxt 3 / Vue</span>
+                      </div>
+                      <div class="scroller__item">
+                        <div class="icon--wrapper-s">
+                          <typescript-icon class="--icon no-glow" />
+                        </div>
+                        <span>TypeScript</span>
+                      </div>
+                      <div class="scroller__item">
+                        <div class="icon--wrapper-s">
+                          <javascript-icon class="--icon no-glow" />
+                        </div>
+                        <span>JavaScript</span>
+                      </div>
+                      <div class="scroller__item">
+                        <div class="icon--wrapper-s">
+                          <css-icon class="--icon no-glow" />
+                        </div>
+                        <span>Accessibility</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="project--wrapper">
+                <span class="project--time">2023 - 2025</span>
                 <div class="project--info">
                   <span class="project--title"
                     >Exp Frontend Engineer - Ministerio Justicia</span
