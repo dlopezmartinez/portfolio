@@ -669,7 +669,7 @@ main {
   gap: 20px;
 
   p {
-    color: var(--color-bright);
+    color: var(--color-white);
     font-size: 1rem;
     letter-spacing: 2px;
     mix-blend-mode: difference;
@@ -742,20 +742,28 @@ main {
 
   h1 {
     position: relative;
-    font-size: 3rem;
+    font-size: 3.5rem;
     letter-spacing: 2px;
     padding: 10px 0px;
+    color: var(--color-heading);
+    font-weight: 700;
+  }
+
+  h2 {
+    color: var(--color-heading);
+    font-size: 1.5rem;
+    font-weight: 600;
   }
 
   a {
     cursor: pointer;
-    color: white;
+    color: var(--color-heading);
     font-weight: 600;
   }
 
   p {
     text-wrap: pretty;
-    color: var(--color-bright);
+    color: var(--color-text);
     margin: 20px 0px;
   }
 
@@ -786,7 +794,7 @@ main {
       align-items: center;
       gap: 20px;
       svg {
-        fill: var(--color-bright);
+        fill: var(--color-icon);
       }
     }
   }
@@ -812,7 +820,9 @@ main {
   }
 
   .--sticky-header {
-    font-size: 1.5rem;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-heading);
   }
 
   .--container-scroll::-webkit-scrollbar {
@@ -836,7 +846,7 @@ main {
         display: flex;
         align-items: center;
         gap: 10px;
-        color: var(--color-bright);
+        color: var(--color-text-muted);
         opacity: 0.8;
 
         &::before {
@@ -896,6 +906,13 @@ main {
     width: 100%;
     max-width: 100%;
     position: relative;
+  }
+
+  .project--title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--color-heading);
+    margin-bottom: 0.5rem;
   }
 
   .scroller {
@@ -1107,7 +1124,7 @@ main {
 .contact__input {
   font-family: "Inter";
   font-size: 1rem;
-  color: white;
+  color: var(--color-text);
   border: none;
   padding: 1rem;
   flex: 1;
@@ -1118,7 +1135,7 @@ main {
 .contact__textarea {
   font-family: "Inter";
   font-size: 1rem;
-  color: white;
+  color: var(--color-text);
   border: none;
   padding: 1rem;
   flex: 1;
