@@ -258,10 +258,11 @@ onMounted(() => {
                 usabilidad.
               </p>
               <p>
-                Actualmente trabajo en <a>NEORIS</a> como coordinador/arquitecto
-                de Front End. Me encargo del desarrollo de la arquitectura de un
-                gestor procesal web para el Ministerio de Justicia, además de
-                coordinar al equipo de desarrollo y el reparto de tareas.
+                Actualmente trabajo como Senior Frontend Developer en
+                <a>Bershka</a>, dentro del equipo Catalog & Core, donde lidero
+                la evolución del eCommerce internacional bajo un enfoque SSR
+                con Nuxt 3, impulsando migraciones técnicas, accesibilidad y un
+                desarrollo seguro y escalable.
               </p>
               <p>
                 A lo largo de mi trayectoria, he tenido la oportunidad de
@@ -749,7 +750,7 @@ main {
   a {
     cursor: pointer;
     color: white;
-    font-weight: 600px;
+    font-weight: 600;
   }
 
   p {
